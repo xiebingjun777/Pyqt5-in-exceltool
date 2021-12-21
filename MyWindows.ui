@@ -15,14 +15,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>676</width>
+    <width>500</width>
     <height>378</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>676</width>
-    <height>378</height>
+    <height>1000</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <property name="tabsClosable">
      <bool>true</bool>
@@ -52,21 +52,79 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>10</y>
-        <width>341</width>
-        <height>211</height>
+        <y>0</y>
+        <width>251</width>
+        <height>231</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <item>
+          <widget class="QLabel" name="label_21">
+           <property name="minimumSize">
+            <size>
+             <width>63</width>
+             <height>45</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>63</width>
+             <height>45</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>I D ：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_4">
+           <property name="minimumSize">
+            <size>
+             <width>170</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>170</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_9">
          <item>
           <widget class="QLabel" name="label_12">
+           <property name="minimumSize">
+            <size>
+             <width>63</width>
+             <height>45</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
-             <width>16777215</width>
-             <height>43</height>
+             <width>63</width>
+             <height>45</height>
             </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
            </property>
            <property name="text">
             <string>姓 名 ：</string>
@@ -75,6 +133,18 @@
          </item>
          <item>
           <widget class="QLineEdit" name="lineEdit_3">
+           <property name="minimumSize">
+            <size>
+             <width>170</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>170</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -86,6 +156,17 @@
         <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="0,3">
          <item>
           <widget class="QLabel" name="label_13">
+           <property name="minimumSize">
+            <size>
+             <width>65</width>
+             <height>45</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
            <property name="text">
             <string>性 别 ：</string>
            </property>
@@ -93,31 +174,6 @@
          </item>
          <item>
           <layout class="QHBoxLayout" name="sexlayout">
-           <item>
-            <widget class="QLabel" name="label_6">
-             <property name="minimumSize">
-              <size>
-               <width>120</width>
-               <height>43</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>43</height>
-              </size>
-             </property>
-             <property name="baseSize">
-              <size>
-               <width>100</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
            <item>
             <widget class="QRadioButton" name="maleButton">
              <property name="text">
@@ -143,165 +199,19 @@
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="0,1">
-         <item>
-          <widget class="QLabel" name="label_14">
-           <property name="text">
-            <string>年   齡 ：</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="comboBox_9">
-           <property name="minimumSize">
-            <size>
-             <width>170</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>170</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="editable">
-            <bool>true</bool>
-           </property>
-           <property name="currentText">
-            <string>0</string>
-           </property>
-           <item>
-            <property name="text">
-             <string>0</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>1</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>2</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>3</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>4</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>5</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>6</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>7</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>8</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>9</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>10</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>11</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>12</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>13</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>14</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>15</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>16</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>17</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>18</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>19</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>20</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_6">
-         <item>
-          <widget class="QLabel" name="label_15">
-           <property name="text">
-            <string>出生日期：</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDateEdit" name="dateEdit"/>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
           <widget class="QLabel" name="label_7">
            <property name="minimumSize">
             <size>
-             <width>160</width>
-             <height>0</height>
+             <width>63</width>
+             <height>45</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>63</width>
+             <height>45</height>
             </size>
            </property>
            <property name="text">
@@ -315,6 +225,12 @@
             <size>
              <width>170</width>
              <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>170</width>
+             <height>16777215</height>
             </size>
            </property>
            <property name="currentText">
@@ -346,6 +262,220 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>60</y>
+        <width>201</width>
+        <height>53</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item>
+        <widget class="QLabel" name="label_15">
+         <property name="minimumSize">
+          <size>
+           <width>63</width>
+           <height>45</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>63</width>
+           <height>45</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>出生日期：</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDateEdit" name="dateEdit">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>120</y>
+        <width>201</width>
+        <height>47</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="0,1">
+       <item>
+        <widget class="QLabel" name="label_14">
+         <property name="minimumSize">
+          <size>
+           <width>63</width>
+           <height>45</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>63</width>
+           <height>45</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>年 齡 ：</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboBox_9">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>170</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Ebrima</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <property name="currentText">
+          <string>0</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>4</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>5</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>6</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>7</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>8</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>9</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>10</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>11</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>12</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>13</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>14</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>15</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>16</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>17</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>18</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>19</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>20</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
     <widget class="QWidget" name="Polyo">
      <attribute name="title">
@@ -354,210 +484,206 @@
      <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>471</width>
-        <height>218</height>
+        <x>40</x>
+        <y>20</y>
+        <width>381</width>
+        <height>171</height>
        </rect>
       </property>
-      <layout class="QFormLayout" name="formLayout_2">
-       <item row="1" column="0">
-        <layout class="QVBoxLayout" name="verticalLayout">
-         <property name="spacing">
-          <number>10</number>
-         </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout">
-           <item>
-            <widget class="QLabel" name="label">
-             <property name="text">
-              <string>息肉部位：</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QComboBox" name="comboBox">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="currentText">
-              <string>右半结肠（包括：回盲部、升结肠、横结肠右半）</string>
-             </property>
-             <item>
-              <property name="text">
-               <string>右半结肠（包括：回盲部、升结肠、横结肠右半）</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>左半结肠（包括：横结肠左半、降结肠、乙状结肠）</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>直肠</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>全大肠散发</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-          </layout>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>息肉部位：</string>
+           </property>
+          </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <widget class="QComboBox" name="comboBox">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="currentText">
+            <string>右半结肠（包括：回盲部、升结肠、横结肠右半）</string>
+           </property>
            <item>
-            <widget class="QLabel" name="label_2">
-             <property name="text">
-              <string>内镜表现：</string>
-             </property>
-            </widget>
+            <property name="text">
+             <string>右半结肠（包括：回盲部、升结肠、横结肠右半）</string>
+            </property>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBox_2">
-             <property name="currentText">
-              <string>有蒂</string>
-             </property>
-             <item>
-              <property name="text">
-               <string>有蒂</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>亚蒂</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>平坦</string>
-              </property>
-             </item>
-            </widget>
+            <property name="text">
+             <string>左半结肠（包括：横结肠左半、降结肠、乙状结肠）</string>
+            </property>
            </item>
-          </layout>
+           <item>
+            <property name="text">
+             <string>直肠</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>全大肠散发</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>内镜表现：</string>
+           </property>
+          </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <widget class="QComboBox" name="comboBox_2">
+           <property name="currentText">
+            <string>有蒂</string>
+           </property>
            <item>
-            <widget class="QLabel" name="label_3">
-             <property name="text">
-              <string>息肉病理诊断：</string>
-             </property>
-            </widget>
+            <property name="text">
+             <string>有蒂</string>
+            </property>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBox_3">
-             <property name="currentText">
-              <string>炎性息肉</string>
-             </property>
-             <item>
-              <property name="text">
-               <string>炎性息肉</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>增生性息肉</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>腺癌息肉</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>不典型增生/癌变</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>癌</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>锯齿状腺瘤</string>
-              </property>
-             </item>
-            </widget>
+            <property name="text">
+             <string>亚蒂</string>
+            </property>
            </item>
-          </layout>
+           <item>
+            <property name="text">
+             <string>平坦</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>息肉病理诊断：</string>
+           </property>
+          </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <widget class="QComboBox" name="comboBox_3">
+           <property name="currentText">
+            <string>炎性息肉</string>
+           </property>
            <item>
-            <widget class="QLabel" name="label_4">
-             <property name="text">
-              <string>息肉个数：</string>
-             </property>
-            </widget>
+            <property name="text">
+             <string>炎性息肉</string>
+            </property>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBox_4">
-             <property name="currentText">
-              <string>单个</string>
-             </property>
-             <item>
-              <property name="text">
-               <string>单个</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>多个</string>
-              </property>
-             </item>
-            </widget>
+            <property name="text">
+             <string>增生性息肉</string>
+            </property>
            </item>
-          </layout>
+           <item>
+            <property name="text">
+             <string>腺癌息肉</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>不典型增生/癌变</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>癌</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>锯齿状腺瘤</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>息肉个数：</string>
+           </property>
+          </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_11">
+          <widget class="QComboBox" name="comboBox_4">
+           <property name="currentText">
+            <string>单个</string>
+           </property>
            <item>
-            <widget class="QLabel" name="label_8">
-             <property name="text">
-              <string>息肉大小：</string>
-             </property>
-            </widget>
+            <property name="text">
+             <string>单个</string>
+            </property>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBox_7">
-             <property name="currentText">
-              <string>&lt;5mm</string>
-             </property>
-             <item>
-              <property name="text">
-               <string>&lt;5mm</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>6~9mm</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>10~19mm</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>&gt;20mm</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>&gt;40mm</string>
-              </property>
-             </item>
-            </widget>
+            <property name="text">
+             <string>多个</string>
+            </property>
            </item>
-          </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <item>
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>息肉大小：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBox_7">
+           <property name="currentText">
+            <string>&lt;5mm</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>&lt;5mm</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>6~9mm</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>10~19mm</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>&gt;20mm</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>&gt;40mm</string>
+            </property>
+           </item>
+          </widget>
          </item>
         </layout>
        </item>
@@ -568,7 +694,7 @@
      <attribute name="title">
       <string>癌</string>
      </attribute>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>30</x>
