@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9fc2661f-b241-4970-81a5-406955931a76" name="默认更改列表" comment="" />
+    <list default="true" id="9fc2661f-b241-4970-81a5-406955931a76" name="默认更改列表" comment="默认更改列表">
+      <change beforePath="$PROJECT_DIR$/.idea/MedicalMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MedicalMS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyWindows.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyWindows.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyWindows.ui" beforeDir="false" afterPath="$PROJECT_DIR$/MyWindows.ui" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,17 +20,20 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="20Qn6Tu0JiixjWremEXiTNYyC0e" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="E:/OpenSourceCode/PyQt_practice-master" />
-    <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Python36/Scripts/pyuic5.exe" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -61,7 +70,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="D:\pycharm2017_64bit\pycharm3.4.1\KeyGen\python.exe" />
+      <option name="SDK_HOME" value="C:\Python36\python3.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -76,12 +85,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.MyWindows" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.MyWindows" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -104,72 +118,29 @@
       <workItem from="1638978168633" duration="1026000" />
       <workItem from="1639233175909" duration="4834000" />
       <workItem from="1639879903160" duration="14411000" />
+      <workItem from="1640054119057" duration="3094000" />
+      <workItem from="1640059093711" duration="2915000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="257" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1636790154772">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="257" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1636790154772" />
-    <state x="508" y="159" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1636386410037">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="508" y="159" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.864@0.0.1536.864" timestamp="1636386410037" />
-    <state x="493" y="299" key="#com.intellij.tools.ToolEditorDialog" timestamp="1636791711628">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="493" y="299" key="#com.intellij.tools.ToolEditorDialog/0.0.1536.864@0.0.1536.864" timestamp="1636791711628" />
-    <state x="508" y="209" key="FileChooserDialogImpl" timestamp="1639881446515">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="508" y="209" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1639881446515" />
-    <state width="1337" height="192" key="GridCell.Tab.0.bottom" timestamp="1640016719501">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1337" height="192" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1640016719501" />
-    <state width="1337" height="192" key="GridCell.Tab.0.center" timestamp="1640016719501">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1337" height="192" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1640016719501" />
-    <state width="1337" height="192" key="GridCell.Tab.0.left" timestamp="1640016719501">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1337" height="192" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1640016719501" />
-    <state width="1337" height="192" key="GridCell.Tab.0.right" timestamp="1640016719501">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1337" height="192" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1640016719501" />
-    <state width="746" height="277" key="GridCell.Tab.1.bottom" timestamp="1637506905235">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="746" height="277" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1637506905235" />
-    <state width="746" height="277" key="GridCell.Tab.1.center" timestamp="1637506905235">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="746" height="277" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1637506905235" />
-    <state width="746" height="277" key="GridCell.Tab.1.left" timestamp="1637506905235">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="746" height="277" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1637506905235" />
-    <state width="746" height="277" key="GridCell.Tab.1.right" timestamp="1637506905235">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="746" height="277" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1637506905235" />
-    <state x="232" y="97" key="SettingsEditor" timestamp="1636791712816">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="232" y="97" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1636791712816" />
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1639879911935">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1639879911935" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MedicalMS$main.coverage" NAME="main Coverage Results" MODIFIED="1640016719496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pyqt5_in_exceltool$main.coverage" NAME="main Coverage Results" MODIFIED="1640071946728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MedicalMS$MyWindows.coverage" NAME="MyWindows Coverage Results" MODIFIED="1637489923354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MedicalMS$main.coverage" NAME="main Coverage Results" MODIFIED="1640016719496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
