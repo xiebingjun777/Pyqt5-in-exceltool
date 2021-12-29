@@ -4,6 +4,33 @@ import time
 from MyWindows import Ui_MainWindow
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
+import xlwt
+
+add_count = 1
+ouput_excel = "patient_info_temp.xls"
+workbook = xlwt.Workbook(encoding='utf-8')
+worksheet = workbook.add_sheet('sheet1')
+worksheet.write(0, 0, label='病人ID号')
+worksheet.write(0, 1, label='姓名')
+worksheet.write(0, 2, label='性别')
+worksheet.write(0, 3, label='年龄')
+worksheet.write(0, 4, label='出生日期')
+worksheet.write(0, 5, label='检查日期')
+worksheet.write(0, 6, label='诊断')
+worksheet.write(0, 7, label='其他')
+worksheet.write(0, 8, label='息肉个数')
+worksheet.write(0, 9, label='息肉部位')
+worksheet.write(0, 10, label='内镜表现')
+worksheet.write(0, 11, label='息肉病理诊断')
+worksheet.write(0, 12, label='癌灶个数')
+worksheet.write(0, 13, label='病理：按分化程度')
+worksheet.write(0, 14, label='病理：按形态分类')
+worksheet.write(0, 15, label='内镜形态')
+worksheet.write(0, 16, label='病理：按组织来源')
+worksheet.write(0, 17, label='部位')
+patient_key = ["ID","Name","Sex","Age","BirthDay","CheckDate","Diagnose","OtherDia","PolyoCount",
+               "PolyoSize","PolyoSite","Endoscope","PolyoPathology","CancerFociCount","DifferePathology",
+               "ShapePathology","EndoscopeShape","HistologicPathology","CancerSite"]
 patient_info = {"ID":0,
                 "Name":"",
                 "Sex":"",
@@ -24,8 +51,15 @@ patient_info = {"ID":0,
                 "HistologicPathology":"",
                 "CancerSite":""
                 }
-print(len(patient_info.keys()))
+# print(len(patient_info.keys()))
 print(patient_info.keys())
+
+
+def writeExc(dic_info,count):
+    for key, value in dic_info.items():
+        worksheet.write(count, patient_key.index(key), value)
+    workbook.save(ouput_excel)
+
 class myWin(QMainWindow,Ui_MainWindow):
     def __init__(self):
         super(myWin,self).__init__()
@@ -34,6 +68,7 @@ class myWin(QMainWindow,Ui_MainWindow):
         self.tabItem = {"癌":self.tab,"息肉":self.Polyo,"正常":"","其他":""}
         self.tabItemList = [{"正常": "","checkResult" : 0},{"息肉": self.Polyo,"checkResult" : 1},{"癌": self.tab,"checkResult" : 2},{"其他":"","checkResult" : 3}]
         self.isCheck = False
+        self.addCount = 1
         # self.Sex = ["男","女"]
         # self.isCancer = False
         # self.isPolyo = False
@@ -66,7 +101,7 @@ class myWin(QMainWindow,Ui_MainWindow):
         # print(self.comboBox_2.currentText())
         if self.lineEdit_4.text() == "":
             print("lineEdit_4空")
-            self.setStyleSheet("QLineEdit#lineEdit_4 { border:1px solid #FF5959;}")
+            self.setStyleSheet("QLineEdit#lineEdit_4 { border:1px solid #FF5959;background-color:#E4F0FA}")
             return
 
         if self.lineEdit_3.text() == "":
@@ -85,6 +120,8 @@ class myWin(QMainWindow,Ui_MainWindow):
         patient_info["Diagnose"] = self.comboBox_6.currentText()
 
         print(patient_info)
+        writeExc(patient_info,self.addCount)
+        self.addCount += 1
 
 
     def checkCancerInput(self):
@@ -113,10 +150,11 @@ class myWin(QMainWindow,Ui_MainWindow):
 
     def addTabItem(self,tabTitle):
         print(tabTitle)
-        if self.isCheck or tabTitle == "正常":
+        if self.isCheck or tabTitle == "正常" or tabTitle == "" or tabTitle == "其他":
             return
         self.tabWidget.addTab(self.tabItem[tabTitle], tabTitle)
         self.isCheck = True
+        self.tabWidget.setCurrentIndex(1)
 
     def closeTab(self,item):
         print(item)
@@ -124,6 +162,7 @@ class myWin(QMainWindow,Ui_MainWindow):
             return
         self.tabWidget.removeTab(item)
         self.isCheck = False
+        self.comboBox_6.setCurrentIndex(0)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
