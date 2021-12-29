@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9fc2661f-b241-4970-81a5-406955931a76" name="默认更改列表" comment="默认更改列表">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWindows.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyWindows.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWindows.ui" beforeDir="false" afterPath="$PROJECT_DIR$/MyWindows.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +115,7 @@
       <workItem from="1639233175909" duration="4834000" />
       <workItem from="1639879903160" duration="14411000" />
       <workItem from="1640054119057" duration="3094000" />
-      <workItem from="1640059093711" duration="9629000" />
+      <workItem from="1640059093711" duration="12239000" />
     </task>
     <servers />
   </component>
@@ -137,7 +135,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Pyqt5_in_exceltool$main.coverage" NAME="main Coverage Results" MODIFIED="1640684615556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pyqt5_in_exceltool$main.coverage" NAME="main Coverage Results" MODIFIED="1640685580225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MedicalMS$MyWindows.coverage" NAME="MyWindows Coverage Results" MODIFIED="1637489923354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MedicalMS$main.coverage" NAME="main Coverage Results" MODIFIED="1640016719496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
