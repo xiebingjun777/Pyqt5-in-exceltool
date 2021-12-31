@@ -1052,13 +1052,13 @@
      <string>添加信息</string>
     </property>
    </widget>
-   <widget class="QTableView" name="tableView">
+   <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>330</y>
+      <y>320</y>
       <width>641</width>
-      <height>301</height>
+      <height>311</height>
      </rect>
     </property>
    </widget>

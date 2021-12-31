@@ -104,7 +104,8 @@ class myWin(QMainWindow,Ui_MainWindow):
         # self.Sex = ["男","女"]
         # self.isCancer = False
         # self.isPolyo = False
-        self.tableView.setHorizontalHeader(patient_title)
+        self.tableWidget.setRowCount(1)
+        self.tableWidget.setHorizontalHeaderLabels(["hello"])
 
 
         # self.retranslateUi(self)
@@ -156,6 +157,7 @@ class myWin(QMainWindow,Ui_MainWindow):
 
         print(patient_info)
         self.addCount += 1
+
 
         # if not os.path.exists(ouput_excel):
         #     file = open(ouput_excel, 'w')
