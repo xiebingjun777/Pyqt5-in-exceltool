@@ -41,7 +41,7 @@ patient_key = ["ID","Name","Sex","Age","BirthDay","CheckDate","Diagnose","OtherD
                "ShapePathology","EndoscopeShape","HistologicPathology","CancerSite"]
 patient_info = {"ID":0,
                 "Name":"",
-                "Sex":"",
+                "Sex":"男",
                 "Age":0,
                 "BirthDay":"",
                 "CheckDate":"",
@@ -104,6 +104,7 @@ class myWin(QMainWindow,Ui_MainWindow):
         # self.Sex = ["男","女"]
         # self.isCancer = False
         # self.isPolyo = False
+        self.tableView.setHorizontalHeader(patient_title)
 
 
         # self.retranslateUi(self)
@@ -119,6 +120,8 @@ class myWin(QMainWindow,Ui_MainWindow):
         self.tabWidget.tabCloseRequested.connect(self.closeTab)
         self.tabWidget.installEventFilter(self)
         # self.lineEdit_4.
+
+
 
     def eventFilter(self, object, event):
         if event.type() == QEvent.Enter :
@@ -154,23 +157,23 @@ class myWin(QMainWindow,Ui_MainWindow):
         print(patient_info)
         self.addCount += 1
 
-        if not os.path.exists(ouput_excel):
-            file = open(ouput_excel, 'w')
-            file.close()
-            # wb = Workbook(ouput_excel)
-            # sh1 = wb.add_worksheet("sheet1")
-            # wb = Workbook(ouput_excel)
-            # sh1 = wb.add_worksheet("sheet1")
-            # wb.save(ouput_excel)
-        workbook = xlrd.open_workbook(ouput_excel)
-        sheet_name = workbook.sheet_names()
-        worksheet = workbook.sheet_by_name(sheet_name[0])
-        rows_exists = worksheet.nrows
-
-        if rows_exists == 0 :
-            writeExcel(ouput_excel,patient_info)
-        else:
-            writeExcelAppend(ouput_excel,patient_info)
+        # if not os.path.exists(ouput_excel):
+        #     file = open(ouput_excel, 'w')
+        #     file.close()
+        #     # wb = Workbook(ouput_excel)
+        #     # sh1 = wb.add_worksheet("sheet1")
+        #     # wb = Workbook(ouput_excel)
+        #     # sh1 = wb.add_worksheet("sheet1")
+        #     # wb.save(ouput_excel)
+        # workbook = xlrd.open_workbook(ouput_excel)
+        # sheet_name = workbook.sheet_names()
+        # worksheet = workbook.sheet_by_name(sheet_name[0])
+        # rows_exists = worksheet.nrows
+        #
+        # if rows_exists == 0 :
+        #     writeExcel(ouput_excel,patient_info)
+        # else:
+        #     writeExcelAppend(ouput_excel,patient_info)
 
     def checkCancerInput(self):
         print("check Cancer Input")
