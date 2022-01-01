@@ -4,15 +4,17 @@ import time
 import os
 from MyWindows import Ui_MainWindow
 from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-import xlwt
-import xlrd
+from PyQt5.QtCore import QDate,QEvent
+from PyQt5.QtGui import QFont
+# import xlwt
+# import xlrd
 import openpyxl
-from xlutils.copy import copy
+# from xlutils.copy import copy
 from xlsxwriter import Workbook
 
-add_count = 1
+add_count = 0
 ouput_excel = "patient_info_temp.xlsx"
+
 # workbook = xlrd.open_workbook(ouput_excel)
 # workbook =
 # worksheet = workbook.add_sheet('sheet1')
@@ -47,12 +49,12 @@ patient_info = {"ID":0,
                 "CheckDate":"",
                 "Diagnose":"",
                 "OtherDia":"",
-                "PolyoCount":0,
+                "PolyoCount":"",
                 "PolyoSize":"",
                 "PolyoSite":"",
                 "Endoscope":"",
                 "PolyoPathology":"",
-                "CancerFociCount":0,
+                "CancerFociCount":"",
                 "DifferePathology":"",
                 "ShapePathology":"",
                 "EndoscopeShape":"",
@@ -60,7 +62,7 @@ patient_info = {"ID":0,
                 "CancerSite":""
                 }
 # print(len(patient_info.keys()))
-print(patient_info.keys())
+# print(patient_info.keys())
 
 
 def writeExcel(path,dic_info,count=1):
@@ -104,8 +106,12 @@ class myWin(QMainWindow,Ui_MainWindow):
         # self.Sex = ["男","女"]
         # self.isCancer = False
         # self.isPolyo = False
-        self.tableWidget.setRowCount(1)
-        self.tableWidget.setHorizontalHeaderLabels(["hello"])
+        font = QFont('微软雅黑', 13)
+        font.setBold(True)  # 设置字体加粗
+        self.tableWidget.horizontalHeader().setFont(font)
+        self.tableWidget.setRowCount(add_count)
+        self.tableWidget.setColumnCount(len(patient_title))
+        self.tableWidget.setHorizontalHeaderLabels(patient_title)
 
 
         # self.retranslateUi(self)
@@ -115,6 +121,7 @@ class myWin(QMainWindow,Ui_MainWindow):
         #
         # self.setStyleSheet("QLineEdit#input { border:1px solid #0F0F0E;} QLineEdit#inputNull { border:1px solid #FF5959;}")
         self.pushButton.clicked.connect(self.sendPush)
+        self.pushButton_2.clicked.connect(self.writePatienInfo)
         #根据出生年月设置来算年龄
         self.comboBox_6.currentTextChanged.connect(self.addTabItem)
         self.dateEdit.dateChanged.connect(self.calAge)
@@ -122,12 +129,20 @@ class myWin(QMainWindow,Ui_MainWindow):
         self.tabWidget.installEventFilter(self)
         # self.lineEdit_4.
 
-
+    def writePatienInfo(self):
+        print("writePatienInfo")
+        infoList = []
+        loadWb = openpyxl.load_workbook(ouput_excel)
+        sheet1 = loadWb.get_sheet_by_name(loadWb.sheetnames[0])
+        for k,v in patient_info.items():
+            infoList.append(v)
+        sheet1.append(infoList)
+        loadWb.save(ouput_excel)
 
     def eventFilter(self, object, event):
         if event.type() == QEvent.Enter :
             print("mouse Enter ")
-            self.setStyleSheet("QLineEdit#lineEdit_4,#lineEdit_3 { border:1px solid #828790;}")
+            self.setStyleSheet("QLineEdit#lineEdit_4,#lineEdit_3,QComboBox#comboBox_6 { border:1px solid #828790;}")
             return True
         return False
 
@@ -144,20 +159,45 @@ class myWin(QMainWindow,Ui_MainWindow):
             print("lineEdit_3空")
             self.setStyleSheet("QLineEdit#lineEdit_3 { border:1px solid #FF5959;}")
             return
+
+        if self.comboBox_6.currentText() == "":
+            print("诊断信息未填")
+            self.setStyleSheet("QComboBox#comboBox_6 { border:1px solid #FF5959;}")
+            return
+        elif self.comboBox_6.currentText() == "息肉":
+            patient_info["PolyoSite"] = self.comboBox.currentText()
+            patient_info["Endoscope"] = self.comboBox_2.currentText()
+            patient_info["PolyoPathology"] = self.comboBox_3.currentText()
+            patient_info["PolyoCount"] = self.comboBox_4.currentText()
+            patient_info["PolyoSize"] = self.comboBox_7.currentText()
+        elif self.comboBox_6.currentText() == "癌":
+            patient_info["CancerFociCount"] = self.comboBox_12.currentText()
+            patient_info["EndoscopeShape"] = self.comboBox_10.currentText()
+            patient_info["DifferePathology"] = self.comboBox_13.currentText()
+            patient_info["ShapePathology"] = self.comboBox_14.currentText()
+            patient_info["HistologicPathology"] = self.comboBox_16.currentText()
+            patient_info["CancerSite"] = self.comboBox_15.currentText()
+        elif self.comboBox_6.currentText() == "其他":
+            print("其他")
+
         patient_info["ID"] = self.lineEdit_4.text()
         patient_info["Name"] = self.lineEdit_3.text()
         patient_info["Age"] = self.comboBox_9.currentText()
         if self.femaleButton.isChecked():
-            patient_info["Sex"] = "女"
+            patient_info["Sex"] = "女性"
         elif self.maleButton.isChecked():
-            patient_info["Sex"] = "男"
-        patient_info["BirthDay"] = self.dateEdit.date().toString()
-        patient_info["CheckDate"] = self.dateTimeEdit.date().toString()
+            patient_info["Sex"] = "男性"
+        patient_info["BirthDay"] = self.dateEdit.date().toString("yyyy-MM-dd")
+        patient_info["CheckDate"] = self.dateTimeEdit.dateTime().toString("yyyy-MM-dd hh:mm")
         patient_info["Diagnose"] = self.comboBox_6.currentText()
 
         print(patient_info)
-        self.addCount += 1
-
+        # self.addCount += 1
+        rowcount = self.tableWidget.rowCount()
+        self.tableWidget.setRowCount(rowcount + 1)
+        for k,v in patient_info.items():
+            # print(k,v)
+            self.tableWidget.setItem(rowcount,patient_key.index(k),QTableWidgetItem(v))
 
         # if not os.path.exists(ouput_excel):
         #     file = open(ouput_excel, 'w')
@@ -211,6 +251,23 @@ class myWin(QMainWindow,Ui_MainWindow):
 
     def closeTab(self,item):
         print(item)
+        print(self.tabWidget.tabText(self.tabWidget.currentIndex()))
+        currentTabTitle = self.tabWidget.tabText(self.tabWidget.currentIndex())
+        if currentTabTitle == "息肉":
+            patient_info["PolyoSite"] = ""
+            patient_info["Endoscope"] = ""
+            patient_info["PolyoPathology"] = ""
+            patient_info["PolyoCount"] = ""
+            patient_info["PolyoSize"] = ""
+        elif currentTabTitle == "癌":
+            patient_info["CancerFociCount"] = ""
+            patient_info["EndoscopeShape"] = ""
+            patient_info["DifferePathology"] = ""
+            patient_info["ShapePathology"] = ""
+            patient_info["HistologicPathology"] = ""
+            patient_info["CancerSite"] = ""
+        elif currentTabTitle == "其他":
+            patient_info["OtherDia"] = ""
         if self.tabWidget.count() == 1:
             return
         self.tabWidget.removeTab(item)
@@ -218,6 +275,12 @@ class myWin(QMainWindow,Ui_MainWindow):
         self.comboBox_6.setCurrentIndex(0)
 
 if __name__ == "__main__":
+    if not os.path.exists(ouput_excel):
+        workbook = Workbook(ouput_excel)  # 创建一个名为 hello.xlsx 赋值给workbook
+        worksheet = workbook.add_worksheet("sheet1")
+        for v in patient_title:
+            worksheet.write(0,patient_title.index(v),v)
+        workbook.close()
     app = QApplication(sys.argv)
     Win = myWin()
     Win.show()

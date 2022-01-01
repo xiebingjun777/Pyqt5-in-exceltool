@@ -574,8 +574,8 @@
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>20</y>
+        <x>10</x>
+        <y>30</y>
         <width>454</width>
         <height>171</height>
        </rect>
@@ -787,8 +787,8 @@
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>10</y>
+        <x>40</x>
+        <y>20</y>
         <width>401</width>
         <height>190</height>
        </rect>
@@ -809,13 +809,8 @@
          <item>
           <widget class="QComboBox" name="comboBox_12">
            <property name="currentText">
-            <string>请选择</string>
+            <string>单个</string>
            </property>
-           <item>
-            <property name="text">
-             <string>请选择</string>
-            </property>
-           </item>
            <item>
             <property name="text">
              <string>单个</string>
@@ -842,13 +837,8 @@
          <item>
           <widget class="QComboBox" name="comboBox_10">
            <property name="currentText">
-            <string>请选择</string>
+            <string>肿块型</string>
            </property>
-           <item>
-            <property name="text">
-             <string>请选择</string>
-            </property>
-           </item>
            <item>
             <property name="text">
              <string>肿块型</string>
@@ -880,13 +870,8 @@
          <item>
           <widget class="QComboBox" name="comboBox_13">
            <property name="currentText">
-            <string>请选择</string>
+            <string>高分化</string>
            </property>
-           <item>
-            <property name="text">
-             <string>请选择</string>
-            </property>
-           </item>
            <item>
             <property name="text">
              <string>高分化</string>
@@ -923,13 +908,8 @@
          <item>
           <widget class="QComboBox" name="comboBox_14">
            <property name="currentText">
-            <string>请选择</string>
+            <string>乳头状</string>
            </property>
-           <item>
-            <property name="text">
-             <string>请选择</string>
-            </property>
-           </item>
            <item>
             <property name="text">
              <string>乳头状</string>
@@ -966,13 +946,8 @@
          <item>
           <widget class="QComboBox" name="comboBox_16">
            <property name="currentText">
-            <string>请选择</string>
+            <string>腺癌</string>
            </property>
-           <item>
-            <property name="text">
-             <string>请选择</string>
-            </property>
-           </item>
            <item>
             <property name="text">
              <string>腺癌</string>
@@ -1004,13 +979,8 @@
          <item>
           <widget class="QComboBox" name="comboBox_15">
            <property name="currentText">
-            <string>请选择</string>
+            <string>左半结肠</string>
            </property>
-           <item>
-            <property name="text">
-             <string>请选择</string>
-            </property>
-           </item>
            <item>
             <property name="text">
              <string>左半结肠</string>
@@ -1060,6 +1030,19 @@
       <width>641</width>
       <height>311</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>110</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>写入文件</string>
     </property>
    </widget>
   </widget>
