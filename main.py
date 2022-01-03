@@ -15,9 +15,9 @@ from xlsxwriter import Workbook
 
 add_count = 0
 ouput_excel = "patient_info_temp.xlsx"
-read_patient_info = []
 isExistPatient = False
 inserRow = 1
+updateRow = 1
 patient_title = ['病人ID号','姓名','性别','年龄','出生日期','检查日期','诊断','其他','息肉个数','息肉大小','息肉部位','内镜表现','息肉病理诊断','癌灶个数','病理：按分化程度','病理：按形态分类','内镜形态','病理：按组织来源','部位']
 patient_key = ["ID","Name","Sex","Age","BirthDay","CheckDate","Diagnose","OtherDia","PolyoCount",
                "PolyoSize","PolyoSite","Endoscope","PolyoPathology","CancerFociCount","DifferePathology",
@@ -72,6 +72,7 @@ class myWin(QMainWindow,Ui_MainWindow):
         self.tabItemList = [{"正常": "","checkResult" : 0},{"息肉": self.Polyo,"checkResult" : 1},{"癌": self.tab,"checkResult" : 2},{"其他":"","checkResult" : 3}]
         self.isCheck = False
         self.addCount = 1
+        self.read_patient_info = []
         # self.Sex = ["男","女"]
         # self.isCancer = False
         # self.isPolyo = False
@@ -113,12 +114,12 @@ class myWin(QMainWindow,Ui_MainWindow):
     def writePatienInfo(self):
         isExistPatient = False
         print("writePatienInfo")
-        for index in range(len(read_patient_info)):
-            if patient_info["Name"] == read_patient_info[index][0] and patient_info["BirthDay"] == read_patient_info[index][1]:
-                print(index,read_patient_info[index])
+        for index in range(len(self.read_patient_info)):
+            if patient_info["Name"] == self.read_patient_info[index][0] and patient_info["BirthDay"] == self.read_patient_info[index][1]:
+                print(index,self.read_patient_info[index])
                 print("存在同一个人")
                 isExistPatient = True
-                inserRow = index + 2
+                updateRow = index
         infoList = []
         loadWb = openpyxl.load_workbook(ouput_excel)
         sheet1 = loadWb.get_sheet_by_name(loadWb.sheetnames[0])
@@ -127,13 +128,17 @@ class myWin(QMainWindow,Ui_MainWindow):
         if not isExistPatient:
             sheet1.append(infoList)
         else:
-            sheet1.insert_rows(inserRow)
-            for index in range(len(sheet1[inserRow])):
-                print(sheet1[inserRow][index].value)
-                sheet1[inserRow][index].value = patient_info[patient_key[index]]
+            # sheet1.insert_rows(inserRow)
+            # print(len(tuple(sheet1.rows)))
+            # print(tuple(sheet1.rows))
+            # print("updateRow:",updateRow)
+            for index in range(len(sheet1[updateRow + 1])):
+                # print(sheet1[updateRow + 1][index].value)
+                sheet1[updateRow + 1][index].value = patient_info[patient_key[index]]
         loadWb.save(ouput_excel)
 
     def readInfoForSort(self):
+
         loadWb = openpyxl.load_workbook(ouput_excel,read_only=True)
         ws = loadWb[loadWb.sheetnames[0]]
         for row in ws.rows:
@@ -148,7 +153,7 @@ class myWin(QMainWindow,Ui_MainWindow):
                 index = index + 1
                 # print("index:", index)
             if len(row_info):
-                read_patient_info.append(row_info)
+                self.read_patient_info.append(row_info)
 
     def eventFilter(self, object, event):
         if event.type() == QEvent.Enter :
@@ -208,8 +213,10 @@ class myWin(QMainWindow,Ui_MainWindow):
 
 
         try:
+            self.read_patient_info = []
             self.readInfoForSort()
-            print(read_patient_info)
+            print(len(self.read_patient_info))
+            print(self.read_patient_info)
             self.writePatienInfo()
 
             rowcount = self.tableWidget.rowCount()

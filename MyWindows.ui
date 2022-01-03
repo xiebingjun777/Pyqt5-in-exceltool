@@ -670,8 +670,13 @@
          <item>
           <widget class="QComboBox" name="comboBox_3">
            <property name="currentText">
-            <string>炎性息肉</string>
+            <string/>
            </property>
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
            <item>
             <property name="text">
              <string>炎性息肉</string>
@@ -870,8 +875,13 @@
          <item>
           <widget class="QComboBox" name="comboBox_13">
            <property name="currentText">
-            <string>高分化</string>
+            <string/>
            </property>
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
            <item>
             <property name="text">
              <string>高分化</string>
@@ -908,8 +918,13 @@
          <item>
           <widget class="QComboBox" name="comboBox_14">
            <property name="currentText">
-            <string>乳头状</string>
+            <string/>
            </property>
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
            <item>
             <property name="text">
              <string>乳头状</string>
@@ -946,8 +961,13 @@
          <item>
           <widget class="QComboBox" name="comboBox_16">
            <property name="currentText">
-            <string>腺癌</string>
+            <string/>
            </property>
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
            <item>
             <property name="text">
              <string>腺癌</string>
