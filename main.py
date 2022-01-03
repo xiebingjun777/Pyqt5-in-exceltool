@@ -1,11 +1,12 @@
 import datetime
 import sys
 import time
+import traceback
 import os
 from MyWindows import Ui_MainWindow
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QDate,QEvent
-from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QFont,QIcon
 # import xlwt
 # import xlrd
 import openpyxl
@@ -14,29 +15,9 @@ from xlsxwriter import Workbook
 
 add_count = 0
 ouput_excel = "patient_info_temp.xlsx"
-
-# workbook = xlrd.open_workbook(ouput_excel)
-# workbook =
-# worksheet = workbook.add_sheet('sheet1')
-# rows = workbook.sheets()[0].nrows
-# worksheet.write(0, 0, label='病人ID号')
-# worksheet.write(0, 1, label='姓名')
-# worksheet.write(0, 2, label='性别')
-# worksheet.write(0, 3, label='年龄')
-# worksheet.write(0, 4, label='出生日期')
-# worksheet.write(0, 5, label='检查日期')
-# worksheet.write(0, 6, label='诊断')
-# worksheet.write(0, 7, label='其他')
-# worksheet.write(0, 8, label='息肉个数')
-# worksheet.write(0, 9, label='息肉部位')
-# worksheet.write(0, 10, label='内镜表现')
-# worksheet.write(0, 11, label='息肉病理诊断')
-# worksheet.write(0, 12, label='癌灶个数')
-# worksheet.write(0, 13, label='病理：按分化程度')
-# worksheet.write(0, 14, label='病理：按形态分类')
-# worksheet.write(0, 15, label='内镜形态')
-# worksheet.write(0, 16, label='病理：按组织来源')
-# worksheet.write(0, 17, label='部位')
+read_patient_info = []
+isExistPatient = False
+inserRow = 1
 patient_title = ['病人ID号','姓名','性别','年龄','出生日期','检查日期','诊断','其他','息肉个数','息肉大小','息肉部位','内镜表现','息肉病理诊断','癌灶个数','病理：按分化程度','病理：按形态分类','内镜形态','病理：按组织来源','部位']
 patient_key = ["ID","Name","Sex","Age","BirthDay","CheckDate","Diagnose","OtherDia","PolyoCount",
                "PolyoSize","PolyoSite","Endoscope","PolyoPathology","CancerFociCount","DifferePathology",
@@ -80,26 +61,14 @@ def writeExcel(path,dic_info,count=1):
                 sheet.cell(row=i+2,column=j+1,value=v_list[j])
     workbook.save(path)
 
-def writeExcelAppend(path,dic_info,count=1):
-    workbook = xlrd.open_workbook(path)
-    sheet_name = workbook.sheet_names()
-    worksheet = workbook.sheet_by_name(sheet_name[0])
-    rows_exist = worksheet.nrows
-    new_workbook = copy(workbook)
-    new_worksheet = new_workbook.get_sheet(0)
-    v_list = []
-    for key, value in dic_info.items():
-        v_list.append(value)
-        for j in range(0,len(v_list)):
-            new_worksheet.write(rows_exist,j,v_list[j])
-    new_workbook.save(path)
+
 
 class myWin(QMainWindow,Ui_MainWindow):
     def __init__(self):
         super(myWin,self).__init__()
         self.setupUi(self)
         self.initWidgetsParm()
-        self.tabItem = {"癌":self.tab,"息肉":self.Polyo,"正常":"","其他":""}
+        self.tabItem = {"癌":self.tab,"息肉":self.Polyo,"正常":"","其他":self.tab_2}
         self.tabItemList = [{"正常": "","checkResult" : 0},{"息肉": self.Polyo,"checkResult" : 1},{"癌": self.tab,"checkResult" : 2},{"其他":"","checkResult" : 3}]
         self.isCheck = False
         self.addCount = 1
@@ -108,11 +77,14 @@ class myWin(QMainWindow,Ui_MainWindow):
         # self.isPolyo = False
         font = QFont('微软雅黑', 13)
         font.setBold(True)  # 设置字体加粗
+        self.setWindowIcon(QIcon('./avc.ico'))
         self.tableWidget.horizontalHeader().setFont(font)
         self.tableWidget.setRowCount(add_count)
         self.tableWidget.setColumnCount(len(patient_title))
         self.tableWidget.setHorizontalHeaderLabels(patient_title)
-
+        self.tableWidget.horizontalHeader().setStyleSheet("QHeaderView::section{border:2px groove gray;padding:2px 4px;background-color: #CDDEFF;}")
+        # self.old_hook = sys.excepthook
+        # sys.excepthook = self.catch_exceptions
 
         # self.retranslateUi(self)
         # PushSend = self.pushButton
@@ -129,15 +101,54 @@ class myWin(QMainWindow,Ui_MainWindow):
         self.tabWidget.installEventFilter(self)
         # self.lineEdit_4.
 
+    def catch_exceptions(self,ty,value,tb):
+        trace_format = traceback.format_exception(ty,value,tb)
+        print("ty:{}".format(ty))
+        print("value:{}".format(value))
+        print("tb:{}".format(tb))
+        trace_string = "".join(trace_format)
+        QMessageBox.critical(None,"An exception was raised","{}".format(trace_format))
+        self.old_hook(ty,value,tb)
+
     def writePatienInfo(self):
+        isExistPatient = False
         print("writePatienInfo")
+        for index in range(len(read_patient_info)):
+            if patient_info["Name"] == read_patient_info[index][0] and patient_info["BirthDay"] == read_patient_info[index][1]:
+                print(index,read_patient_info[index])
+                print("存在同一个人")
+                isExistPatient = True
+                inserRow = index + 2
         infoList = []
         loadWb = openpyxl.load_workbook(ouput_excel)
         sheet1 = loadWb.get_sheet_by_name(loadWb.sheetnames[0])
         for k,v in patient_info.items():
             infoList.append(v)
-        sheet1.append(infoList)
+        if not isExistPatient:
+            sheet1.append(infoList)
+        else:
+            sheet1.insert_rows(inserRow)
+            for index in range(len(sheet1[inserRow])):
+                print(sheet1[inserRow][index].value)
+                sheet1[inserRow][index].value = patient_info[patient_key[index]]
         loadWb.save(ouput_excel)
+
+    def readInfoForSort(self):
+        loadWb = openpyxl.load_workbook(ouput_excel,read_only=True)
+        ws = loadWb[loadWb.sheetnames[0]]
+        for row in ws.rows:
+            row_info = []
+            # print(row)
+            index = 0
+            for cell in row:
+                if index > 4:
+                    break
+                if index == 1 or index == 4:
+                    row_info.append(cell.value)
+                index = index + 1
+                # print("index:", index)
+            if len(row_info):
+                read_patient_info.append(row_info)
 
     def eventFilter(self, object, event):
         if event.type() == QEvent.Enter :
@@ -179,6 +190,7 @@ class myWin(QMainWindow,Ui_MainWindow):
             patient_info["CancerSite"] = self.comboBox_15.currentText()
         elif self.comboBox_6.currentText() == "其他":
             print("其他")
+            patient_info["OtherDia"] = self.comboBox_5.currentText()
 
         patient_info["ID"] = self.lineEdit_4.text()
         patient_info["Name"] = self.lineEdit_3.text()
@@ -187,49 +199,40 @@ class myWin(QMainWindow,Ui_MainWindow):
             patient_info["Sex"] = "女性"
         elif self.maleButton.isChecked():
             patient_info["Sex"] = "男性"
-        patient_info["BirthDay"] = self.dateEdit.date().toString("yyyy-MM-dd")
-        patient_info["CheckDate"] = self.dateTimeEdit.dateTime().toString("yyyy-MM-dd hh:mm")
+        patient_info["BirthDay"] = self.dateEdit.date().toString("yyyy/MM/dd")
+        patient_info["CheckDate"] = self.dateTimeEdit.dateTime().toString("yyyy/MM/dd hh:mm")
         patient_info["Diagnose"] = self.comboBox_6.currentText()
 
         print(patient_info)
         # self.addCount += 1
-        rowcount = self.tableWidget.rowCount()
-        self.tableWidget.setRowCount(rowcount + 1)
-        for k,v in patient_info.items():
-            # print(k,v)
-            self.tableWidget.setItem(rowcount,patient_key.index(k),QTableWidgetItem(v))
 
-        # if not os.path.exists(ouput_excel):
-        #     file = open(ouput_excel, 'w')
-        #     file.close()
-        #     # wb = Workbook(ouput_excel)
-        #     # sh1 = wb.add_worksheet("sheet1")
-        #     # wb = Workbook(ouput_excel)
-        #     # sh1 = wb.add_worksheet("sheet1")
-        #     # wb.save(ouput_excel)
-        # workbook = xlrd.open_workbook(ouput_excel)
-        # sheet_name = workbook.sheet_names()
-        # worksheet = workbook.sheet_by_name(sheet_name[0])
-        # rows_exists = worksheet.nrows
-        #
-        # if rows_exists == 0 :
-        #     writeExcel(ouput_excel,patient_info)
-        # else:
-        #     writeExcelAppend(ouput_excel,patient_info)
 
-    def checkCancerInput(self):
-        print("check Cancer Input")
+        try:
+            self.readInfoForSort()
+            print(read_patient_info)
+            self.writePatienInfo()
 
-    def checkPoyloInput(self):
-        print("checkPoyloInput")
-    # def changeLineEditBorder(self):
-    #     self.lineEdit_4.setStyleSheet("QLineEdit { border:1px solid #0F0F0E;}")
+            rowcount = self.tableWidget.rowCount()
+            self.tableWidget.setRowCount(rowcount + 1)
+            for k, v in patient_info.items():
+                # print(k,v)
+                self.tableWidget.setItem(rowcount, patient_key.index(k), QTableWidgetItem(v))
+        except PermissionError as err:
+            print('Handling run-time error:', err)
+            QMessageBox.critical(None, "文件打开错误", "{}被占用，请先关闭文件".format(ouput_excel))
+            # self.tableWidget.removeRow(rowcount)
 
     def calAge(self):
+        current_day = time.localtime(time.time())
+        birth_day = self.dateEdit.date()
         print("计算年龄")
+        age = 0
         print(str(self.dateEdit.date().year()) + "-" + str(self.dateEdit.date().month()) + "-" + str(self.dateEdit.date().day()))
         if self.dateEdit.date().year() < time.localtime(time.time()).tm_year :
-            age = time.localtime(time.time()).tm_year - self.dateEdit.date().year()
+            if current_day.tm_mon < birth_day.month() or (current_day.tm_mon == birth_day.month() and current_day.tm_mday < birth_day.day()):
+                age = current_day.tm_year - birth_day.year() - 1
+            if current_day.tm_mon > birth_day.month() or (current_day.tm_mon == birth_day.month() and current_day.tm_mday >= birth_day.day()):
+                age = current_day.tm_year - birth_day.year()
         else:
             return
         self.comboBox_9.setCurrentText(str(age))
@@ -243,7 +246,7 @@ class myWin(QMainWindow,Ui_MainWindow):
 
     def addTabItem(self,tabTitle):
         print(tabTitle)
-        if self.isCheck or tabTitle == "正常" or tabTitle == "" or tabTitle == "其他":
+        if self.isCheck or tabTitle == "正常" or tabTitle == "":
             return
         self.tabWidget.addTab(self.tabItem[tabTitle], tabTitle)
         self.isCheck = True
